@@ -1,0 +1,18 @@
+# ignore all of the import files
+.import/
+
+# ignore my specific export configuration files
+export.cfg
+export_presets.cfg
+
+# ignore all image files
+/**/*.png
+/**/*.import
+
+# ignore all mono-specific files
+.mono/
+data_*/
+
+# ignore all vscode files
+.tmp/
+.vscode/
