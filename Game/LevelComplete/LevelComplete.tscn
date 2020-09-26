@@ -1,0 +1,87 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://Game/LevelComplete/NextButton.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Game/LevelComplete/LevelCompletePoints.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Font/Supermolot Light.otf" type="DynamicFontData" id=3]
+[ext_resource path="res://Game/BonusPoints.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Game/TotalScore.tscn" type="PackedScene" id=5]
+
+[sub_resource type="DynamicFont" id=1]
+size = 72
+outline_size = 2
+outline_color = Color( 0, 0, 0, 1 )
+use_filter = true
+font_data = ExtResource( 3 )
+
+[node name="LevelComplete" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+rect_pivot_offset = Vector2( -1186.61, -188.077 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ColorRect" type="ColorRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0.0784314, 1, 0, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="NextButton" parent="." instance=ExtResource( 1 )]
+margin_left = -288.0
+margin_top = -160.0
+margin_right = -32.0
+margin_bottom = -32.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -241.0
+margin_top = -89.0
+margin_right = 242.0
+margin_bottom = 223.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="LevelComplete" parent="VBoxContainer" instance=ExtResource( 2 )]
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 0.0
+margin_top = 0.0
+margin_right = 483.0
+margin_bottom = 45.0
+
+[node name="BonusPoints" parent="VBoxContainer" instance=ExtResource( 4 )]
+
+[node name="Multiplier" type="HBoxContainer" parent="VBoxContainer"]
+margin_top = 134.0
+margin_right = 483.0
+margin_bottom = 263.0
+size_flags_vertical = 3
+
+[node name="TotalScore" parent="VBoxContainer" instance=ExtResource( 5 )]
+
+[node name="Label" type="Label" parent="."]
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -257.5
+margin_top = 128.0
+margin_right = 257.5
+margin_bottom = 179.0
+custom_fonts/font = SubResource( 1 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "LEVEL COMPLETE!"
+align = 1
+valign = 1
+autowrap = true
+uppercase = true
+__meta__ = {
+"_edit_use_anchors_": false
+}

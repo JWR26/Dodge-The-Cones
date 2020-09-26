@@ -1,0 +1,96 @@
+[gd_scene load_steps=8 format=2]
+
+[ext_resource path="res://Menu/Buttons/PlayButton.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Font/Supermolot Light.otf" type="DynamicFontData" id=2]
+[ext_resource path="res://Menu/Buttons/AboutButton.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Menu/HighScore.gd" type="Script" id=4]
+[ext_resource path="res://Menu/Buttons/QuitButton.tscn" type="PackedScene" id=5]
+
+[sub_resource type="DynamicFont" id=1]
+size = 100
+outline_size = 4
+use_filter = true
+font_data = ExtResource( 2 )
+
+[sub_resource type="DynamicFont" id=2]
+size = 50
+outline_size = 2
+use_filter = true
+font_data = ExtResource( 2 )
+
+[node name="MainMenu" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Background" type="ColorRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0, 0.784314, 1, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Title" type="Label" parent="."]
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -360.0
+margin_top = 100.0
+margin_right = 360.0
+margin_bottom = 400.0
+custom_fonts/font = SubResource( 1 )
+custom_colors/font_color = Color( 1, 0.501961, 0, 1 )
+custom_colors/font_outline_modulate = Color( 0, 0, 0, 1 )
+text = "Dodge 
+The Cones!"
+align = 1
+autowrap = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="HighScore" type="Label" parent="."]
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -360.0
+margin_top = 400.0
+margin_right = 360.0
+margin_bottom = 14.0
+custom_fonts/font = SubResource( 2 )
+custom_colors/font_color = Color( 1, 0.501961, 0, 1 )
+custom_colors/font_outline_modulate = Color( 0, 0, 0, 1 )
+text = "High Score : %s"
+align = 1
+script = ExtResource( 4 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Menu" type="VBoxContainer" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -128.0
+margin_top = -18.0
+margin_right = 128.0
+margin_bottom = 374.0
+size_flags_horizontal = 0
+size_flags_vertical = 0
+alignment = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="PlayButton" parent="Menu" instance=ExtResource( 1 )]
+size_flags_horizontal = 0
+
+[node name="AboutButton" parent="Menu" instance=ExtResource( 3 )]
+margin_top = 132.0
+margin_bottom = 260.0
+
+[node name="QuitButton" parent="Menu" instance=ExtResource( 5 )]
+margin_top = 264.0
+margin_bottom = 392.0

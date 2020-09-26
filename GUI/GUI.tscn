@@ -1,0 +1,214 @@
+[gd_scene load_steps=23 format=2]
+
+[ext_resource path="res://GUI/Sprites/Button_Up.png" type="Texture" id=1]
+[ext_resource path="res://GUI/Sprites/Button_Up_pressed.png" type="Texture" id=2]
+[ext_resource path="res://GUI/Sprites/Button_Down.png" type="Texture" id=3]
+[ext_resource path="res://GUI/Sprites/Button_Down_pressed.png" type="Texture" id=4]
+[ext_resource path="res://GUI/Sprites/Button_Right.png" type="Texture" id=5]
+[ext_resource path="res://GUI/Sprites/Button_Left_pressed.png" type="Texture" id=6]
+[ext_resource path="res://GUI/Sprites/Button_Right_pressed.png" type="Texture" id=7]
+[ext_resource path="res://GUI/Sprites/Button_Left.png" type="Texture" id=8]
+[ext_resource path="res://Font/Supermolot Light.otf" type="DynamicFontData" id=9]
+[ext_resource path="res://GUI/Level.gd" type="Script" id=10]
+[ext_resource path="res://GUI/GUI.gd" type="Script" id=11]
+[ext_resource path="res://GUI/Left.gd" type="Script" id=12]
+[ext_resource path="res://GUI/Right.gd" type="Script" id=13]
+[ext_resource path="res://GUI/Up.gd" type="Script" id=14]
+[ext_resource path="res://GUI/Down.gd" type="Script" id=15]
+[ext_resource path="res://GUI/Total Score.gd" type="Script" id=16]
+[ext_resource path="res://Pickups/Point/Sprites/Silver_coin.png" type="Texture" id=17]
+[ext_resource path="res://Pickups/Point/Sprites/Bronze_coin.png" type="Texture" id=18]
+[ext_resource path="res://Pickups/Point/Sprites/Gold_coin.png" type="Texture" id=19]
+[ext_resource path="res://GUI/Timer/Timer.tscn" type="PackedScene" id=20]
+
+[sub_resource type="DynamicFont" id=1]
+size = 32
+extra_spacing_top = 4
+extra_spacing_bottom = 4
+font_data = ExtResource( 9 )
+
+[sub_resource type="DynamicFont" id=2]
+size = 32
+extra_spacing_top = 4
+extra_spacing_bottom = 4
+font_data = ExtResource( 9 )
+
+[node name="GUI" type="Control"]
+margin_right = 640.0
+margin_bottom = 1080.0
+script = ExtResource( 11 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ColorRect" type="ColorRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0, 0, 0, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Keypad" type="HBoxContainer" parent="."]
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -196.0
+margin_top = -296.0
+margin_right = 196.0
+margin_bottom = -35.9998
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Left" type="TextureButton" parent="Keypad"]
+margin_top = 66.0
+margin_right = 128.0
+margin_bottom = 194.0
+size_flags_horizontal = 5
+size_flags_vertical = 4
+texture_normal = ExtResource( 8 )
+texture_pressed = ExtResource( 6 )
+script = ExtResource( 12 )
+
+[node name="U&D" type="VBoxContainer" parent="Keypad"]
+margin_left = 132.0
+margin_right = 260.0
+margin_bottom = 260.0
+
+[node name="Up" type="TextureButton" parent="Keypad/U&D"]
+margin_right = 128.0
+margin_bottom = 128.0
+texture_normal = ExtResource( 1 )
+texture_pressed = ExtResource( 2 )
+script = ExtResource( 14 )
+
+[node name="Down" type="TextureButton" parent="Keypad/U&D"]
+margin_top = 132.0
+margin_right = 128.0
+margin_bottom = 260.0
+texture_normal = ExtResource( 3 )
+texture_pressed = ExtResource( 4 )
+script = ExtResource( 15 )
+
+[node name="Right" type="TextureButton" parent="Keypad"]
+margin_left = 264.0
+margin_top = 66.0
+margin_right = 392.0
+margin_bottom = 194.0
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture_normal = ExtResource( 5 )
+texture_pressed = ExtResource( 7 )
+script = ExtResource( 13 )
+
+[node name="GUI_Top" type="HBoxContainer" parent="."]
+anchor_right = 1.0
+margin_bottom = 98.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Left" type="VBoxContainer" parent="GUI_Top"]
+margin_right = 152.0
+margin_bottom = 98.0
+size_flags_horizontal = 2
+size_flags_vertical = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Level" type="Label" parent="GUI_Top/Left"]
+margin_right = 152.0
+margin_bottom = 47.0
+custom_fonts/font = SubResource( 1 )
+text = "Level: %s"
+script = ExtResource( 10 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Bonus_Points" type="HBoxContainer" parent="GUI_Top/Left"]
+margin_top = 51.0
+margin_right = 152.0
+margin_bottom = 98.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Bonus" type="Label" parent="GUI_Top/Left/Bonus_Points"]
+margin_right = 120.0
+margin_bottom = 47.0
+custom_fonts/font = SubResource( 2 )
+text = "Bonus: "
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Point1" type="TextureRect" parent="GUI_Top/Left/Bonus_Points"]
+visible = false
+margin_left = 124.0
+margin_right = 156.0
+margin_bottom = 32.0
+size_flags_horizontal = 0
+size_flags_vertical = 0
+texture = ExtResource( 18 )
+
+[node name="Point2" type="TextureRect" parent="GUI_Top/Left/Bonus_Points"]
+visible = false
+margin_left = 160.0
+margin_right = 192.0
+margin_bottom = 32.0
+size_flags_horizontal = 0
+size_flags_vertical = 0
+texture = ExtResource( 18 )
+
+[node name="Point3" type="TextureRect" parent="GUI_Top/Left/Bonus_Points"]
+visible = false
+margin_left = 196.0
+margin_right = 228.0
+margin_bottom = 32.0
+size_flags_horizontal = 0
+size_flags_vertical = 0
+texture = ExtResource( 17 )
+
+[node name="Point4" type="TextureRect" parent="GUI_Top/Left/Bonus_Points"]
+visible = false
+margin_left = 196.0
+margin_right = 228.0
+margin_bottom = 32.0
+size_flags_horizontal = 0
+size_flags_vertical = 0
+texture = ExtResource( 17 )
+
+[node name="Point5" type="TextureRect" parent="GUI_Top/Left/Bonus_Points"]
+visible = false
+margin_left = 232.0
+margin_right = 264.0
+margin_bottom = 32.0
+size_flags_horizontal = 0
+size_flags_vertical = 0
+texture = ExtResource( 19 )
+
+[node name="Total Score" type="Label" parent="GUI_Top"]
+margin_left = 439.0
+margin_right = 640.0
+margin_bottom = 97.0
+custom_fonts/font = SubResource( 2 )
+text = "Total Score
+%s"
+align = 1
+valign = 1
+script = ExtResource( 16 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Timer" parent="." instance=ExtResource( 20 )]
+anchor_top = 0.7
+anchor_bottom = 0.7
+[connection signal="pressed" from="Keypad/Left" to="Keypad/Left" method="_on_Left_pressed"]
+[connection signal="pressed" from="Keypad/U&D/Up" to="Keypad/U&D/Up" method="_on_Up_pressed"]
+[connection signal="pressed" from="Keypad/U&D/Down" to="Keypad/U&D/Down" method="_on_Down_pressed"]
+[connection signal="pressed" from="Keypad/Right" to="Keypad/Right" method="_on_Right_pressed"]
