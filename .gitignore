@@ -4,9 +4,9 @@
 # ignore my specific export configuration files and exported versions
 export.cfg
 export_presets.cfg
-.apk
-.exe
-.pck
+*.apk
+*.exe
+*.pck
 
 # ignore all image files
 /**/*.png
@@ -19,3 +19,6 @@ data_*/
 # ignore all vscode files
 .tmp/
 .vscode/
+
+# ignore the folder containing the images that will be uploaded to the Google Play Store
+.Playstore_images/
